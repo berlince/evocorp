@@ -9,6 +9,7 @@ const styles = StyleSheet.create({
 
     titulo: {
         fontSize: 25,
+        color: '#FFF'
     }
 })
 

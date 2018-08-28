@@ -1,32 +1,37 @@
 import React from 'react'
-import { View } from 'react-native'
+import { View, ImageBackground } from 'react-native'
 import { Input, Header, Botao } from '../components/'
 import { connect } from 'react-redux'
 import { modificaEmail, modificaSenha } from '../actions/AutenticacaoActions'
 
 const FormLogin = (props) => {
     return(
-        <View style={{ flex: 1, padding: 10 }}>
-            <View style={{ flex: 1 }}>
-                <Header titulo="WhatsApp Clone" />
+        <ImageBackground style={{ flex: 1 }} source={require('../assets/img/bg.png')}>
+            <View style={{ flex: 1, padding: 10 }}>
+                <View style={{ flex: 1 }}>
+                    <Header titulo="WhatsApp Clone" />
+                </View>
+                <View style={{ flex: 2 }}>
+                    <Input 
+                        placeholder="Email"
+                        placeholderTextColor="#FFF"
+                        value={props.email}
+                        onChangeText={texto => props.modificaEmail(texto)}
+                    />
+                    <Input 
+                        placeholder="Senha"
+                        placeholderTextColor="#FFF" 
+                        value={props.senha}
+                        onChangeText={texto => props.modificaSenha(texto)}
+                        secureTextEntry
+                        link="Ainda não tem cadastro? Cadastre-se"
+                    />
+                </View>
+                <View style={{ flex: 2 }}>
+                    <Botao title="Acessar" color="#115E54"/>
+                </View>
             </View>
-            <View style={{ flex: 2 }}>
-                <Input 
-                    placeholder="Email"
-                    value={props.email}
-                    onChangeText={texto => props.modificaEmail(texto)}
-                />
-                <Input 
-                    placeholder="Senha" 
-                    value={props.senha}
-                    onChangeText={texto => props.modificaSenha(texto)}
-                    link="Ainda não tem cadastro? Cadastre-se"
-                />
-            </View>
-            <View style={{ flex: 2 }}>
-                <Botao title="Acessar" color="#115E54"/>
-            </View>
-        </View>
+        </ImageBackground>
     )
 }
 

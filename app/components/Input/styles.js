@@ -5,11 +5,12 @@ const styles = StyleSheet.create({
         fontSize: 20,
         height: 45,
         borderBottomWidth: 1,
-        borderBottomColor: '#8b8b8e'
+        borderBottomColor: '#FFF'
     },
 
     link: {
         fontSize: 20,
+        color: '#FFF'
     }
 })
 
