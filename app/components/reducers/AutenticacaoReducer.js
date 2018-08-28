@@ -11,5 +11,5 @@ export default (state = INITIAL_STATE, action) => {
     if(action.type == 'modifica_senha'){
         return { ...state, senha: action.payload }
     }
-    return state
+    return stat
 }
