@@ -23,10 +23,19 @@ export const modificaNome = (texto) => {
 
 export const cadastraUsuario = ({ nome, email, senha }) => {
     firebase.auth().createUserWithEmailAndPassword(email, senha)
-    .then(user => console.log(user))
-    .catch(erro => console.log(erro))
+        .then(user => cadastroUsuarioSucesso())
+        .catch(erro => cadastroUsuarioErro(erro))
 
+}
+
+const cadastroUsuarioSucesso = () => {
     return {
-        type: 'teste'
+        type: 'sucesso'
+    }
+}
+
+const cadastroUsuarioErro = (erro) => {
+    return {
+        type: 'erro'
     }
 }
