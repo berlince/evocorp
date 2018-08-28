@@ -9,7 +9,7 @@ class Botao extends React.PureComponent {
             <Button 
                 title={this.props.title}
                 color={this.props.color} 
-                onPress={() => false} 
+                onPress={this.props.onPress} 
             />
         )
     }

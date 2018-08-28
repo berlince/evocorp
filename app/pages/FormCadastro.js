@@ -1,48 +1,61 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { View, ImageBackground } from 'react-native'
-import { Header, Input, Botao } from '../components/'
 import { connect } from 'react-redux'
-import { modificaEmail, modificaSenha, modificaNome } from '../actions/AutenticacaoActions'
 
-const FormCadastro = (props) => {
-    return (
-        <ImageBackground style={{ flex: 1 }} source={require('../assets/img/bg.png')}>
-            <View style={{ flex: 1, padding: 10 }}>
-                <View style={{ flex: 1 }}>
-                    <Header titulo="Cadastro" />
-                </View>
+import { Header, Input, Botao } from '../components/'
+import { 
+    modificaEmail,
+    modificaSenha, modificaNome, cadastraUsuario } from '../actions/AutenticacaoActions'
 
-                <View style={{ flex: 2 }}>
-                    <Input 
-                        placeholder="Nome"
-                        placeholderTextColor="#FFF" 
-                        value={props.nome}
-                        onChangeText={texto => props.modificaNome(texto)}  
-                    />
-                    <Input 
-                        placeholder="Email"
-                        placeholderTextColor="#FFF"
-                        value={props.email} 
-                        onChangeText={texto => props.modificaEmail(texto)} 
-                    />
-                    <Input 
-                        placeholder="Senha"
-                        placeholderTextColor="#FFF" 
-                        value={props.senha}
-                        secureTextEntry
-                        onChangeText={texto => props.modificaSenha(texto)}
-                    />
-                </View>
+class FormCadastro extends Component {
 
-                <View style={{ flex: 2}}>
-                    <Botao
-                        title="Cadastrar"
-                        color="#115E54"
-                    />
+    _cadastraUsuario(){
+        const { nome, email, senha } = this.props
+
+        this.props.cadastraUsuario({ nome, email, senha })
+    }
+
+    render(){
+        return (
+            <ImageBackground style={{ flex: 1 }} source={require('../assets/img/bg.png')}>
+                <View style={{ flex: 1, padding: 10 }}>
+                    <View style={{ flex: 1 }}>
+                        <Header titulo="Cadastro" />
+                    </View>
+
+                    <View style={{ flex: 2 }}>
+                        <Input 
+                            placeholder="Nome"
+                            placeholderTextColor="#FFF" 
+                            value={this.props.nome}
+                            onChangeText={texto => this.props.modificaNome(texto)}  
+                        />
+                        <Input 
+                            placeholder="Email"
+                            placeholderTextColor="#FFF"
+                            value={this.props.email} 
+                            onChangeText={texto => this.props.modificaEmail(texto)} 
+                        />
+                        <Input 
+                            placeholder="Senha"
+                            placeholderTextColor="#FFF" 
+                            value={this.props.senha}
+                            secureTextEntry
+                            onChangeText={texto => this.props.modificaSenha(texto)}
+                        />
+                    </View>
+
+                    <View style={{ flex: 2}}>
+                        <Botao
+                            title="Cadastrar"
+                            color="#115E54"
+                            onPress={() => this._cadastraUsuario()}
+                        />
+                    </View>
                 </View>
-            </View>
-        </ImageBackground>
-    )
+            </ImageBackground>
+        )
+    }
 }
 
 const mapStateToProps = state => (
@@ -53,4 +66,5 @@ const mapStateToProps = state => (
     }
 )
 
-export default connect(mapStateToProps, {modificaEmail, modificaSenha, modificaNome})(FormCadastro)
+export default connect(mapStateToProps, 
+    {modificaEmail, modificaSenha, modificaNome, cadastraUsuario})(FormCadastro)
