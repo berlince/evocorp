@@ -11,7 +11,7 @@ const Routes = () => {
             <Stack key='root'>
                 <Scene key="formLogin" component={FormLogin} title="Login" />
                 <Scene key="formCadastro" component={FormCadastro} title="Cadastro" />
-                <Scene key="boasVinsas" component={BoasVindas} title="BemVindo" initial />
+                <Scene key="boasVindas" component={BoasVindas} title="BemVindo" />
             </Stack>
         </Router>
     )

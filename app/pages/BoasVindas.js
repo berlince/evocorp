@@ -1,5 +1,6 @@
 import React from 'react'
 import { View, Text, Button, Image, ImageBackground } from 'react-native'
+import { Actions } from 'react-native-router-flux'
 
 const BoasVindas = () => {
     return(
@@ -11,7 +12,7 @@ const BoasVindas = () => {
                 </View>
 
                 <View>
-                    <Button title="Fazer Login" onPress={() => false} />
+                    <Button title="Fazer Login" onPress={() => Actions.formLogin()} />
                 </View>
             </View>
         </ImageBackground>
