@@ -11,7 +11,7 @@ const FormLogin = (props) => {
                 <View style={{ flex: 1 }}>
                     <Header titulo="WhatsApp Clone" />
                 </View>
-                <View style={{ flex: 2 }}>
+                <View style={{ flex: 3 }}>
                     <Input 
                         placeholder="Email"
                         placeholderTextColor="#FFF"
@@ -27,7 +27,7 @@ const FormLogin = (props) => {
                         link="Ainda não tem cadastro? Cadastre-se"
                     />
                 </View>
-                <View style={{ flex: 2 }}>
+                <View style={{ flex: 1 }}>
                     <Botao title="Acessar" color="#115E54"/>
                 </View>
             </View>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, ImageBackground } from 'react-native'
+import { View, ImageBackground, Text } from 'react-native'
 import { connect } from 'react-redux'
 
 import { Header, Input, Botao } from '../components/'
@@ -11,7 +11,6 @@ class FormCadastro extends Component {
 
     _cadastraUsuario(){
         const { nome, email, senha } = this.props
-
         this.props.cadastraUsuario({ nome, email, senha })
     }
 
@@ -23,7 +22,7 @@ class FormCadastro extends Component {
                         <Header titulo="Cadastro" />
                     </View>
 
-                    <View style={{ flex: 2 }}>
+                    <View style={{ flex: 4 }}>
                         <Input 
                             placeholder="Nome"
                             placeholderTextColor="#FFF" 
@@ -43,9 +42,11 @@ class FormCadastro extends Component {
                             secureTextEntry
                             onChangeText={texto => this.props.modificaSenha(texto)}
                         />
+
+                        <Text style={{ color: '#FF0000', fontSize: 18 }}>{this.props.erroCadastro}</Text>
                     </View>
 
-                    <View style={{ flex: 2}}>
+                    <View style={{ flex: 1 }}>
                         <Botao
                             title="Cadastrar"
                             color="#115E54"
@@ -62,7 +63,8 @@ const mapStateToProps = state => (
     {
         nome: state.AutenticacaoReducer.nome,
         email: state.AutenticacaoReducer.email,
-        senha: state.AutenticacaoReducer.senha
+        senha: state.AutenticacaoReducer.senha,
+        erroCadastro: state.AutenticacaoReducer.erroCadastro
     }
 )
 
