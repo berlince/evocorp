@@ -12,12 +12,12 @@ class App extends Component {
     componentWillMount(){
         // Initialize Firebase
         let config = {
-            apiKey: "AIzaSyDbpl3PX8dgxj3yIBTbzdw3z45eP0kb4nY",
-            authDomain: "whatsapp-clone-3c084.firebaseapp.com",
-            databaseURL: "https://whatsapp-clone-3c084.firebaseio.com",
-            projectId: "whatsapp-clone-3c084",
-            storageBucket: "whatsapp-clone-3c084.appspot.com",
-            messagingSenderId: "451390950065"
+            apiKey: "AIzaSyDsuOKuZuxmgrzYPQ-VNl7i2Y75PCLg4MM",
+            authDomain: "whatsapp-clone-29cca.firebaseapp.com",
+            databaseURL: "https://whatsapp-clone-29cca.firebaseio.com",
+            projectId: "whatsapp-clone-29cca",
+            storageBucket: "whatsapp-clone-29cca.appspot.com",
+            messagingSenderId: "680320742341"
         }
             firebase.initializeApp(config);
     }
