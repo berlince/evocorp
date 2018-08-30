@@ -5,6 +5,7 @@ import FormLogin from './pages/FormLogin'
 import FormCadastro from './pages/FormCadastro'
 import BoasVindas from './pages/BoasVindas'
 import Principal from './pages/Principal'
+import AddContato from './pages/AddContato'
 
 const Routes = () => {
     return(
@@ -14,6 +15,7 @@ const Routes = () => {
                 <Scene key="formCadastro" component={FormCadastro} title="Cadastro" hideNavBar={ false } /> 
                 <Scene key="boasVindas" component={BoasVindas} title="BemVindo" hideNavBar={ true } />
                 <Scene key="principal" component={Principal} title="Principal" hideNavBar={ true } initial />
+                <Scene key="addcontato" component={AddContato} title="Adicionar Contato" hideNavBar={ false } />
             </Stack>
         </Router>
     )

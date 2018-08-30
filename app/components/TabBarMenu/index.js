@@ -1,15 +1,30 @@
 import React from 'react'
-import { View, Text, StatusBar } from 'react-native'
+import { View, Text, StatusBar, Image, TouchableOpacity } from 'react-native'
 import { TabBar } from 'react-native-tab-view'
+import { Actions } from 'react-native-router-flux'
+
+import styles from './styles'
 
 const TabBarMenu = (props) => {
     return (
-        <View style={{ backgroundColor: "#115E54", elevation: 4 }}>
+        <View style={styles.container}>
             <StatusBar backgroundColor="#114D44" />
-                <View style={{ height: 50, justifyContent: 'center' }}>
-                    <Text style={{ color: '#FFF', fontSize: 20, marginLeft: 20 }}>WhatsApp</Text>
+            <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+                <View style={styles.tituloView}>
+                    <Text style={styles.titulo}>WhatsApp</Text>
                 </View>
-            <TabBar {...props}  style={{ backgroundColor: '#115E54', elevation: 0 }}/>
+                <View style={{ flexDirection: 'row', marginRight: 20 }}>
+                    <View style={{ width: 50, justifyContent: 'center', alignItems: 'center' }}>
+                    <TouchableOpacity onPress={() => Actions.addcontato()}>
+                        <Image  source={require('../../assets/img/adicionar-contato.png')}/>
+                    </TouchableOpacity> 
+                    </View>
+                    <View style={{ justifyContent: 'center' }}>
+                        <Text style={{ fontSize: 20, color: '#FFF' }}>Sair</Text>
+                    </View>
+                </View>
+            </View>
+            <TabBar {...props}  style={styles.tabBar}/>
         </View>
     )
 }
