@@ -1,8 +1,9 @@
 import React from 'react'
 import { View } from 'react-native'
 import { Input, Botao } from '../components'
+import { connect } from 'react-redux'
 
-const AddContato = () => {
+const AddContato = (props) => {
     return (
         <View style={{ flex: 1, justifyContent: 'center', padding: 20 }}> 
             
@@ -11,6 +12,7 @@ const AddContato = () => {
                     placeholder="Email"
                     style={{ fontSize: 20, height: 45 }}
                     onChange={() => false}
+                    value={props.adiciona_contato_email}
                 />
             </View>
 
@@ -25,4 +27,10 @@ const AddContato = () => {
     )
 }
 
-export default AddContato
+const mapStateToProps = state => (
+    {
+        adiciona_contato_email: state.AppReducer.adiciona_contato_email
+    }
+)
+
+export default connect(mapStateToProps, null)(AddContato)
